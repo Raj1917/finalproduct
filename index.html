@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="application">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team 7 Arduino</title>
+    <!--CSS-->
+    <link href="./assets/css/app.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/foundation.min.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/hover.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+
+    <!--JAVASCRIPT-->
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <script src="./assets/js/foundation.js"></script>
+    <script src="./assets/js/templates.js"></script>
+    <script src="./assets/js/routes.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script src="myJS/tabcontent.js"></script>
+    <script src="myJS/time.js"></script>
+    <script src="myJS/valupdate.js"></script>
+    <script src="myJS/chart2.js"></script>
+    <script src="myJS/nChart.js"></script>
+    <!-- <script src="myJS/heartbeat.js"></script> -->
+  </head> 
+  <body>
+    <!---header content-->
+    <div class="banner">
+      <div class="primary title-bar">
+        <a href="panelName" class="hvr-grow" zf-open="panelName"></a>
+        <div class="grid-block">
+          <div class="center title"><h4>Team 7 Arduino</h4></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-contain">
+      <!--This is the panel content--> 
+      <div zf-panel="test" id="panelName">
+        <!--Close the panel-->
+        <button zf-close="panelName" class="close-button" aria-label="Close alert" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <!--tabs are here for the panel-->
+        <div class="row collapse">
+          <ul class="tabs vertical" id="main-panel">
+  		      <li class="tabs-title is-active status"><a href="#status"> Status</a></li>
+  		      <li class="tabs-title admin-panel"><a href="#admin-panel"> Admin panel</a></li>
+  		      <li class="tabs-title settings"><a href="#settings"> Settings</a></li>
+  		    </ul>
+        </div>	
+      </div>
+
+    <!--Tab content from the tabs-->
+    <div class="tab-content row">
+    <!--Status-->
+      <div id="status" class="active">
+
+        <div class="large-12 large-centered columns t-cont-title"><h3>Status</h3></div>
+
+        <div class="large-12 columns otherstat">
+          <div class="medium-6 small-12 columns gettit">
+            Current Time:
+            <span id="txt"></span>
+          </div>
+          <div class="medium-6 small-12 columns gettit">
+            Occupants:
+            <span id="occups"></span>
+          </div>
+        </div>
+        
+        <div class="small-12 small-centered columns lighthandler">
+
+        <div class="large-12 large-centered columns"><h4>Lighting</h4></div>
+
+         <div class="medium-5 small-12 columns gettit">
+            <h5>Room 1 light brightness</h5>
+            <div class="progress" role="progressbar" tabindex="0" aria-valuenow="20" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
+              <span id="lightprog1" class="progress-meter">
+                <p id="lighttext1" class="progress-meter-text"></p>
+              </span>
+            </div>
+          </div>
+
+          <div class="medium-5 small-12 columns gettit">
+            <h5>Room 2 light brightness</h5>
+            <div class="progress" role="progressbar" tabindex="0" aria-valuenow="20" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
+              <span id="lightprog2" class="progress-meter">
+                <p id="lighttext2" class="progress-meter-text"></p>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="small-12 small-centered columns temphandler">
+
+        <div class="large-12 large-centered columns"><h4>Temperature variables</h4></div>
+
+         <div class="medium-5 small-12 columns gettit">
+            <h5>Fan Speed</h5>
+            <div class="progress" role="progressbar" tabindex="0" aria-valuenow="20" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
+              <span id="tempprog1" class="progress-meter">
+                <p id="temptext1" class="progress-meter-text"></p>
+              </span>
+            </div>
+          </div>
+
+          <div class="medium-5 small-12 columns gettit">
+            <h5>Heater strength</h5>
+            <div class="progress" role="progressbar" tabindex="0" aria-valuenow="20" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
+              <span id="tempprog2" class="progress-meter">
+                <p id="temptext2" class="progress-meter-text"></p>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row chartbeat">
+<!--           <div class="medium-4 columns">
+            Current Temperature:
+            <span id="temp"></span>
+          </div> -->
+          <div class="large-5 small-12 columns">
+            <div class="small-12 columns gettit">
+              Current Temperature:
+              <span id="temp"></span>
+            </div>
+            <canvas id="myChart" width="600" height="300"></canvas>
+          </div>
+          <div class="large-5 small-12 columns">
+            <div class="small-12 columns gettit">
+              Current Heartbeat:
+              <span id="hbeat"></span>
+            </div>
+            <canvas id="heartchart" width="600" height="300"></canvas>
+          </div>
+        </div>
+        
+      </div>
+      <!--Admin Panel-->
+      <div id="admin-panel" class="inactive row">
+        <div class="large-12 columns t-cont-title"><h3>Admin Panel</h3></div>
+        
+          <div class="admin-room-control">
+
+            <div class="small-6 large-6 columns">
+              <p>Room one</p>
+              <div class="switch">
+                <input class="switch-input" id="roomone" type="checkbox" name="roomone">
+                <label class="switch-paddle" for="roomone">
+                  <span class="show-for-sr">Room 1</span>
+                </label>
+              </div>
+              <div class="large-12 small-12 columns light-slider exp2">
+                <input id="exp1" name="0" type="range" min="0" max="255" value="0" onchange="lightone(this.value)">
+                <p id="room1">0</p>
+              </div>
+            </div>
+            
+            <div class="small-6 large-6 columns">
+              <p>Room two</p>
+              <div class="switch">
+                <input class="switch-input" id="roomtwo" type="checkbox" name="roomtwo">
+                <label class="switch-paddle" for="roomtwo">
+                  <span class="show-for-sr">Room 2</span>
+                </label>
+              </div>
+              <div class="large-12 small-12 columns light-slider">
+                <input id="exp2" name="1" type="range" min="0" max="255" value="0" onchange="lighttwo(this.value);">
+                <p id="room2">0</p>
+              </div>
+            </div>
+            <!--FAN CONTROL-->
+          <div class="large-12 large-centered columns"> 
+            <h3>Select Fan Speed</h3>
+          </div>
+          <div class="small-12 columns">
+            <input type="range" min="0" max="255" value="0" onchange="updateVal(this.value);">
+            <p id="val">0</p>
+          </div>
+          <!---HEATER CONTROL-->
+          <div class="large-12 large-centered columns"> 
+            <h3>Select Heater Strength</h3>
+          </div>
+          <div class="small-12 columns">
+            <input type="range" min="0" max="255" value="0" onchange="updateVal2(this.value);">
+            <p id="val2">0</p>
+          </div>
+          <!---SAVE THE CURRENT SETTINGS-->
+          <div class="large-12 large-centered columns"> 
+            <a id="savesett" class="success button" href="#">Save Settings</a>
+          </div>
+
+        </div>
+          <!--<div class="fanCtrl">
+          <h3>Manually Adjust Fan speed</h3>
+            Current Speed: <span id="#">NULL</span>
+            <div class="large-12 small-11 columns">
+              <input type="range" min="0" max="255" value="0" onchange="updateVal(this.value);">
+              <p id="val">0</p>
+            </div>
+          </div>-->
+      </div>
+      <!---Settings-->
+      <div id="settings" class="inactive">
+        <div class="large-12 large-centered columns t-cont-title"><h3>Settings</h3></div>
+
+        <div class="row butsets">
+          <div class="small-12 small-centered columns">
+            <div class="small-5 columns"> 
+              <a id="loaddefault" class="button" href="#">Default Settings</a>
+            </div>
+            <div class="small-5 columns">
+              <a id="loadcustom" class="alert button" href="#">Load Custom Settings</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row small-push-1 setAlert">
+          <div class="small-8 columns">
+            <input type="text" id="emailholder" placeholder="e.g. xXxGodxXx@godmail.com">
+          </div>
+          <div class="small-4 columns">
+            <a id="setmail" class="alert button" href="#">Set email</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--Javascript related stuff-->
+    <script src="./assets/js/vendor/what-input.js"></script>
+    <script src="./assets/js/vendor/foundation2.js"></script>
+    <script src="./assets/js/app.js"></script>
+
+    <!---FOR THE REVEAL AND HIDE FOR EACH SECTION-->
+    <script type="text/javascript">
+      
+              /*function adminLightUpdate(val) {
+          var roomlist = ["#roomone", "#roomtwo", "#roomthree"];
+          var lightval = ["#room1", "#room2", "#room3"];
+          var first = $(roomlist[0]).prop("checked");
+          var second = $(roomlist[1]).prop("checked");
+          var third = $(roomlist[2]).prop("checked");
+          value = val;
+          console.log("value is: " + value + " pin is: " + pin);
+          $.each(roomlist, function(index, send) {
+            $("input[name = '" + index + "']").change(function() {
+              pin = 13-index;
+              for ( i = 0; i < roomlist.length; i++ ) {
+                if ( i == index ) {
+                  if($(send).prop("checked") == true) {
+                    $(lightval[index]).text(value);
+                  }
+                  else if($(send).prop("checked") == false){
+                    value = 0;
+                    $(lightval[index]).text(0);
+                  }
+                }
+              }
+            });
+            sendVal(); 
+          });
+        }*/
+    </script>
+  </body>
+</html>
