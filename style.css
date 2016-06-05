@@ -1,0 +1,202 @@
+/*Import font for icons and other stuff*/
+@font-face {
+	src: url("fonts/FontAwesome.otf");
+    font-family: FontAwesome;
+}
+/*--- BANNER STYLING ----*/
+.middle {
+	left: 50%;
+}
+.banner .work {
+	text-align: center;
+	color: red;
+}
+.banner a:before {
+    content: "\f00b";
+    font-family: FontAwesome;
+    font-size: 30px;
+}
+.banner a {
+	position: relative;
+}
+.status a:before {
+	content: "\f0ae";
+    opacity: 0.7;
+    font-family: FontAwesome;
+    font-size: 20px;
+}
+.admin-panel a:before {
+	content: "\f023";
+    opacity: 0.7;
+    font-family: FontAwesome;
+    font-size: 20px;
+}
+.settings a:before {
+    content: "\f013";
+    opacity: 0.7;
+    font-family: FontAwesome;
+    font-size: 20px;
+}
+/* panel style settings */
+.panel-contain [zf-panel] {
+	background-color: rgb(60, 60, 60);
+}
+.panel-contain [zf-panel] .collapse ul {
+	border: none;
+}
+.panel-contain [zf-panel] .collapse ul li{
+	border-top: 0.2px solid rgba(255, 255, 255, 0.2);
+}
+.panel-contain [zf-panel] .collapse ul li:nth-child(1){
+	border: none;
+	background-color: rgba(80, 80, 80, 0.8);
+}
+.panel-contain [zf-panel] .collapse ul li a {
+	text-align: center;
+	color: white;
+	font-size: 15px;
+}
+.panel-contain [zf-panel] .collapse ul li a:hover{
+	background-color: rgba(80, 80, 80, 0.8);
+	transition-duration: 0.3s;
+}
+.panel-contain [zf-panel] .collapse ul li a:focus{
+	background-color: rgba(80, 80, 80, 0.8);
+}
+
+/* section settings
+section {
+	display: none;
+} 
+section .head{
+	text-align: center;
+}*/
+
+/* ------ TAB CONTENT ## ALSO CONTAINS THE ANIMATION CLASSES ------- */
+.inactive{
+	display: none;
+}
+.active {
+	opacity: 1;
+}
+
+/* ------ Tab content styling ------ */
+.t-cont-title {
+	padding: 15px 0px;
+	text-align: center;
+	border-bottom: 0.5px solid rgb(80, 80, 80);
+	border-radius: 5px;
+}
+/*-----replace this--------*/
+.ardtest h3 {
+	text-align: center;
+}
+.ardtest input[type="range"]{
+	outline: none;
+	-webkit-appearance:none; 
+	-moz-apperance:none; 
+	width:100%;
+	height: 10px;
+	-webkit-border-radius:10px; 
+	-moz-border-radius:10px; 
+	-ms-border-radius:10px; 
+	-o-border-radius:10px;
+	background-color: #CCC;
+	}
+.ardtest input::-webkit-slider-thumb{
+	-webkit-appearance:none; 
+	-moz-apperance:none; 
+	width:30px; 
+	height:30px;
+	-webkit-border-radius:30px; 
+	-moz-border-radius:30px; 
+	-ms-border-radius:30px; 
+	-o-border-radius:30px; 
+	border-radius:30px;
+	background: #00B0B3;
+}
+.ardtest h1 {
+	font-family: sans-serif;
+	color: #00B0B3;
+	margin: 50px;
+}
+#val, #val2 {
+	font-size: 3em;
+	font-family: sans-serif;
+	color: #00B0B3;
+	text-align: center;
+}
+/*-----Status content------*/
+
+.gettit {
+	padding: 20px 0;
+	font-family: sans-serif;
+	text-align: center;
+	font-weight: 300;
+	font-size: 2em;
+}
+#hbeat, #temp {
+	font-size: 15px;
+}
+.otherstat {
+	margin-bottom: 0.5%;
+}
+.lighthandler {
+	margin-bottom: 15%;
+}
+/*-----ADMIN content-------*/
+.admin-room-control {
+	text-align: center;
+}
+.light-slider input[type="range"]{
+	outline: none;
+	-webkit-appearance:none; 
+	-moz-apperance:none; 
+	width:100%;
+	height: 5px;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	-ms-border-radius:5px; 
+	-o-border-radius:5px;
+	background-color: #CCC;
+}
+.light-slider input::-webkit-slider-thumb{
+	-webkit-appearance:none; 
+	-moz-apperance:none; 
+	width:25px; 
+	height:25px;
+	-webkit-border-radius:20px; 
+	-moz-border-radius:20px; 
+	-ms-border-radius:20px; 
+	-o-border-radius:20px; 
+	border-radius:20px;
+	background: #00558b;
+}
+#room1, #room2, #room3 {
+	font-size: 2.5em;	
+	font-family: sans-serif;
+	color: #00B0B3;
+}
+/*-----chart------*/
+.chartbeat {
+	width: 95%;
+}
+/*----Settings Content----*/
+.butsets {
+	margin-top: 3%;
+	text-align: center;
+}
+
+.setAlert {
+	margin-top: 4%;
+}
+
+
+
+
+
+
+
+
+
+
